@@ -13,11 +13,13 @@ import android.view.View;
 public class CollageItem  extends View{
     private int rotIndex = 1,render = 0;
     private Bitmap bitmap;
+    private AnimationHandler animationHandler;
     private Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG);
     public CollageItem(Context context,Bitmap bitmap,int rotIndex) {
         super(context);
         this.bitmap = bitmap;
         this.rotIndex = rotIndex;
+        this.animationHandler = new AnimationHandler(this);
     }
     public void initXY(float x,float y) {
         if(render == 0) {
@@ -38,7 +40,12 @@ public class CollageItem  extends View{
     }
     public boolean onTouchEvent(MotionEvent event) {
         if(event.getAction() == MotionEvent.ACTION_DOWN) {
-
+            if(getRotation()>=45) {
+                animationHandler.end();
+            }
+            else {
+                animationHandler.start();
+            }
         }
         return true;
     }
