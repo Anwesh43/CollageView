@@ -40,7 +40,7 @@ public class CollageItem  extends View{
     }
     public boolean onTouchEvent(MotionEvent event) {
         if(event.getAction() == MotionEvent.ACTION_DOWN) {
-            if(getRotation()>=45) {
+            if(getRotation() == 45*rotIndex) {
                 animationHandler.end();
             }
             else {
