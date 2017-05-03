@@ -14,9 +14,10 @@ public class CollageItem  extends View{
     private int rotIndex = 1,render = 0;
     private Bitmap bitmap;
     private Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG);
-    public CollageItem(Context context,Bitmap bitmap) {
+    public CollageItem(Context context,Bitmap bitmap,int rotIndex) {
         super(context);
         this.bitmap = bitmap;
+        this.rotIndex = rotIndex;
     }
     public void onDraw(Canvas canvas) {
         int w = canvas.getWidth(),h = canvas.getHeight();
