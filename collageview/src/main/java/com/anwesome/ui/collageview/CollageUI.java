@@ -30,7 +30,7 @@ public class CollageUI {
         Point size = new Point();
         display.getRealSize(size);
         w = size.x;
-        h = size.y;
+        h = 8*size.y/10;
     }
     public void show() {
         if(relativeLayout == null) {
