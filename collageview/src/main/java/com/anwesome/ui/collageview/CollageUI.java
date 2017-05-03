@@ -22,6 +22,7 @@ public class CollageUI {
     private int w,h;
     public CollageUI(Activity activity) {
         this.activity = activity;
+        initDimension();
     }
     private void initDimension() {
         DisplayManager displayManager = (DisplayManager)activity.getSystemService(Context.DISPLAY_SERVICE);
@@ -34,8 +35,15 @@ public class CollageUI {
     public void show() {
         if(relativeLayout == null) {
             relativeLayout = new RelativeLayout(activity);
+            int x = w/20,y = h/20;
             for(CollageItem collageItem:collageItems) {
+                collageItem.initXY(x,y);
                 relativeLayout.addView(collageItem,new ViewGroup.LayoutParams(2*w/5,2*h/5));
+                x += ((2*w)/5)+w/10;
+                if(x > w) {
+                    x = w/20;
+                    y += (2*h/5)+h/10;
+                }
             }
             activity.setContentView(relativeLayout);
         }

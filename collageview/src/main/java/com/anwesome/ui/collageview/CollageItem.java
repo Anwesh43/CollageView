@@ -19,6 +19,12 @@ public class CollageItem  extends View{
         this.bitmap = bitmap;
         this.rotIndex = rotIndex;
     }
+    public void initXY(float x,float y) {
+        if(render == 0) {
+            setX(x);
+            setY(y);
+        }
+    }
     public void onDraw(Canvas canvas) {
         int w = canvas.getWidth(),h = canvas.getHeight();
         if(render == 0) {
