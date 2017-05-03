@@ -23,7 +23,7 @@ public class CollageItem  extends View{
         if(render == 0) {
             bitmap = Bitmap.createScaledBitmap(bitmap,w,h,true);
         }
-        canvas.drawBitmap(bitmap,0,0,paint);
+        DrawingUtil.drawCollageItemImage(canvas,paint,bitmap,w,h);
         render++;
     }
     public void update(float factor) {
